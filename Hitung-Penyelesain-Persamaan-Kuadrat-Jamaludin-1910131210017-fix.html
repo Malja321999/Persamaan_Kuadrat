@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+			<script>
+						var a,b,c; //deklarasi dari variabel a,b dan c
+							var hasil; // deklarasi dari variabel hasil sebenarnya bisa saja digabung dengan deklarasi sebelum nya
+								var des ;
+							
+							function validate() { //function validate yang diperuntukan untuk satu laman javascript saja dan merupakan function form dasar 
+							
+									a = document.forms["hitungan_kuadrat"]["nilaia"].value; /*input a yang menggunakan array dan document.forms untuk menunjukan input mana yang 
+																								harus dijalankan karena array pertama menunjukan nama form nya yaitu hitungan_kuadrat 
+																								   sedangkan array yang kedua yaitu nilaia merupakan input a yang didekalarasikan dalam form*/
+																								   
+										b = document.forms["hitungan_kuadrat"]["nilaib"].value; /*input b yang menggunakan array dan document.forms untuk menunjukan input mana yang harus dijalankan 
+																					                 yaitu hitungan_kuadrat sedangkan fungsi array kedua nilaib adalah input dari form dibawah*/
+										
+											c = document.forms["hitungan_kuadrat"]["nilaic"].value;/*input c sama seperti dua perintah sebelum nya namun array kedua hanya untuk input nilaic*/ 
+												
+											  var d = (Math.pow(b,2)) - (4 * a * c); /* rumus diskriminan variabel v dengan rumus b * b - 4 * a * c */
+												
+												if(isNaN(a)){							
+												
+												
+														hasil = "masukan sebuah nilai pada kolom a"; /*sebuah percabangan if yang di dalam nya 
+																						yaitu terdapat perintah Not a Number(NaN) apabila memasukan input nilai a selain angka maka outputnya "masukan 
+																						sebuah nilai"*/
+
+													        }
+															
+													else if(isNaN(b)){                    
+													
+													
+																hasil = "masukan sebuah nilai pada kolom b"; /* cabang dari if yaitu else if yang berisi perintah Not a Number(NaN) apabila memasukan input nilai b selain angka 
+																								   Maka akan keluar tulisan "masukan sebuah nilai" */
+															
+																	  }
+																	
+														else if(isNaN(c)){
+																	
+																	hasil = "masukan sebuah nilai pada kolom c";/*sama seperti percabangan yang sebelum nya namun perintah ini hanya khusus untuk input nilai c */ 
+																		 
+																		 }		 
+																	else if (d > 0 ) 			{	                        // apabila kondisi sebelumnya tidak terpenuhi maka percabangan akan masuk ke else if dimana v kurang dari nol
+																		var x1 = (-b + Math.sqrt(d))/(2*a);  // var x1 dimana rumus awal nya -b + akar kuadrat v dibagi 2 dikali dengan a
+																			var y1 = (-b - Math.sqrt(d))/(2*a); // var x2 dimana rumus awal nya adalah -b - akar kuadrat v dibagi 2 dikali dengan a
+																							 hasil = "hasil akhirnya adalah" + " " +x1.toPrecision(1) + " " +"atau" + " " + y1.toPrecision(1) + " "+"akar real"; //output akhir dari formula variabel x1 dan variabel y1 yang didekalarasikan sebagai hasil akar real
+																								
+																					}
+																	 else if (d == 0 ) // apabila kondisi sebelum nya tidak terpenuhi maka percabangan akan masuk ke else if dimana v sama dengan 0
+																			{
+																				x1 = y1 = -b / (2 * a) ; // apabila z sama dengan w maka hasil nya adalah -b dibagi 2 dikali a 
+																					 hasil = "hasil akhirnya adalah" + " " +x1.toPrecision(1) + " " +"atau" + " " + y1.toPrecision(1) + " "+"akar kembar"; // output akhir apabila kondisi x1 = y1 = -b / (2 * a) terpenuhi maka output hasil nya akan ditampilkan dengan hasil akar kembar 
+																			}
+
+																		else if (d < 0) {       								 /*apabila kondisi sebelum nya tidak terpenuhi dan nilai v 
+																																	kurang dari 0 maka hasil akan memunculkan output termasuk akar imajiner*/
+																						  hasil = "termasuk akar imajiner ";
+																						
+																						}
+																		
+																			else {                                 // apabila semua kondisi sebelum nya tidak terpenuhi maka percabangan akan dikondisikan ke else
+																			
+																					hasil = "tidak memiliki akar" ;//dan ini adalah output terakhir apabila semua kondisi tidak terpenuhi 
+																					
+																				}
+																	
+																				des = "nilai diskriminan nya adalah" + " " + d.toFixed(0); //output akhir dari variabel v yaitu deklarasi des yang di sederhanakan sehingga hasil tidak memiliki koma dengan perintah toFixed dengan value 0
+		
+																					document.getElementById("hasil_hitung").innerHTML = hasil; /* arti dari deklarasi document.getElementById adalah menunjuk sebuah element dengan id hasil_hitung  
+																																		 dan diambil dari html dengan variabel hasil*/
+																						document.getElementById("hasil_deskriminan").innerHTML = des;/* sama seperti perintah sebelum nya namun id dari data ini bernama hasil deskriminan yang akan memproses hasil dari des*/
+												}
+  
+
+				
+		</script>
+		<style>
+			body {
+					background-color : black ;
+
+			}
+
+			h1 {
+				background-color : white;
+				border: 3px solid blue;
+				color: blue;
+				font-weight: bold;
+				}
+			h4{
+				color: blue;
+			}
+
+			form{
+				color : blue;
+				font-weight: bold;
+			}
+
+			input[type=text], select {
+  				width: 50%;
+  				padding: 12px 20px;
+  				margin: 8px 0;
+  				display: inline-block;
+  				border: 1px solid blue;
+  				border-radius: 4px;
+  				text-align: center;
+  				box-sizing: border-box;
+			}
+
+			input[type=submit] {
+  				width: 100%;
+  				background-color: blue;
+  				color: black;
+  				font-weight: bold;
+  				padding: 14px 20px;
+  				margin: 8px 0;
+  				border: none;
+  				border-radius: 4px;
+  				cursor: pointer;
+			}
+
+			input[type=submit]:hover {
+  			background-color: white;
+			}
+
+
+			#objek {
+				width : 290px;
+				height : 300px;
+				background-color : white;
+				border: 3px solid blue;
+				border-radius : 5px;
+			}
+				#objek2 {
+				width : 290px;
+				height : 50px;
+				background-color : white;
+				border: 3px solid blue;
+				border-radius : 5px;
+				font-weight: bold;
+			}
+
+		</style>
+</head>
+<body>
+	<center><!-- agar semua tampilan content dalam website rata tengah -->
+	<h1>Program JavaScript Mencari Penyelesaian Persamaan Kuadrat</h2><!--headline dari program-->
+	<h4 id ="objek2">Format umum persamaan kuadrat : <BR> ax<sup>2</sup> +bx + c = 0</h1>
+		<form id ="objek" name="hitungan_kuadrat" align ="center" action="javascript:validate();"> <!-- perintah untuk menamai form dengan hitungan_kuadrat dan akan di prosess di function dasar validate yang ada script javascript-->
+			<br>
+			Masukan nilai a <br><input type="text" name="nilaia" size="20" placeholder="Koefisien a" required><!-- perintah untuk memasukan nilai a dengan type text dan ukuran maks 20-->
+				<br>
+				<br>
+				Masukan nilai b <br><input type="text" name="nilaib" size="20" placeholder="Koefisien b" required><!-- perintah untuk memasukan nilai b dengan type text ukuran maks 20-->
+					<br>
+					<br>
+					Masukan nilai c <br><input type="text" name="nilaic" size="20" placeholder="Koefisien c"required><!-- perintah untuk memasukan nilai c dengan type text dengan ukuran maks 20-->
+						<br>
+						<br>
+						<input type="submit" value="Hitung"><!--tombol submit yang akan menjalankan semua input yang telah di input pada nilaia,nilaib,nilaic-->
+							<p id="hasil_hitung"></p><!--pendeklarasian hasil_hitung namun hasil dalam bentuk paragraf teks-->
+								<p id="hasil_deskriminan"></p><!--pendeklarasian hasil_diskriminan yang telah di proses pada java script-->
+				
+									
+										
+		</form>
+			
+	</center>		
+</body>
+</html>
+
